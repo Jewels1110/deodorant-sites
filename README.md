@@ -28,7 +28,7 @@ Every "Add to cart" or "Start my subscription" button sends the shopper to a lin
 Netlify ("Add new site → Deploy manually", then drag the folder in) works the same way and is also free.
 
 ## Before you launch: please check these
-1. **Subscription changes and cancelling.** The sites don't promise "skip or cancel anytime", because I couldn't confirm what your subscription app lets customers do. If customers can manage their own subscriptions, add that line. It's a strong selling point.
+1. **Subscriptions:** confirmed: customers can pause, cancel or update subscriptions from their simplebodyproducts.com account, and monthlydeodorant.com says so.
 2. **Ingredient label typo.** Your Shopify ingredient field says "melaleuca alternafolia". The correct spelling is *alternifolia*. The sites use the correct spelling.
 3. **Original product description** lists 4 scents but leaves out Cedar + Clove, which is for sale.
 4. **Keep each site's words unique.** Google treats near-copy sites as "doorway pages". These three were written to differ in audience, content and structure. Keep it that way: don't paste the same blog post on all three.
