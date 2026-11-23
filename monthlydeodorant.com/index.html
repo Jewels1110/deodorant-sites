@@ -120,7 +120,8 @@ html.js [data-split].in .sw>i{transform:none}
 .buy-img{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:flex-end;min-height:560px;padding-top:48px}
 .buy-img .stk{width:min(220px,46%);transition:opacity .35s,transform .6s var(--ease)}
 .buy-img .stk.swap{opacity:0;transform:translateY(10px) scale(.98)}
-.buy-img .halo{position:absolute;left:50%;bottom:4%;width:min(420px,86%);aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:var(--sc,#e9e4dc);transition:background .6s var(--ease);z-index:-1}
+.buy-img .halo-wrap{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.buy-img .halo{position:absolute;left:50%;bottom:4%;width:min(420px,86%);aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:var(--sc,#e9e4dc);transition:background .6s var(--ease)}
 .buy-img .tag{position:absolute;left:0;top:8px;font-family:var(--mono);font-size:13px;color:var(--g1)}
 .buy-ctl{display:grid;gap:26px}
 .grp>.gl{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--g1);margin-bottom:10px}
@@ -166,6 +167,9 @@ html.js [data-split].in .sw>i{transform:none}
   html.js .fx{opacity:1;transform:none}
   html.js [data-split] .sw>i{transform:none}
 }
+
+/* photos that drift: their frames clip, and the image starts slightly larger */
+figure:has(> img[data-px]){overflow:hidden}
 
 .d1,.d2,.d3{letter-spacing:.005em}
 .d1{font-size:clamp(44px,min(5.9vw,9.6vh),96px);line-height:1.02}
@@ -251,6 +255,7 @@ html.js [data-split].in .sw>i{transform:none}
 .cmp3 .v{font-size:17px}
 .cmp3 .v b{font:400 30px/1 var(--display)}
 .fig svg{width:100%;height:auto;display:block}
+.figcap{display:none;font:400 20px/1.2 var(--display);margin-bottom:8px}
 .fig:not(.play) *{animation-play-state:paused!important}
 .fig *{transform-box:fill-box}
 .lvl{transform-origin:50% 100%;animation:5s linear infinite backwards}
@@ -266,7 +271,7 @@ html.js [data-split].in .sw>i{transform:none}
 @keyframes oldbox{0%,94%{opacity:.25}100%{opacity:1}}
 .clock{animation:clock 5s linear infinite backwards}
 @keyframes clock{from{transform:translateX(0)}to{transform:translateX(260px)}}
-@media (max-width:860px){.cmp-head{grid-template-columns:1fr}.cmp3{grid-template-columns:1fr 1fr}.cmp3 .k{grid-column:1/-1;padding:16px 0 4px;border-top:1px solid var(--line)}.cmp3 .k.h{display:none}.cmp3>div:not(.k){border-top:0;padding:10px 14px}.cmp3 .us.h{border-radius:12px 12px 0 0}}
+@media (max-width:860px){.cmp3 .v:has(.fig){grid-column:1/-1;padding:14px 16px 18px!important}.figcap{display:block}.fig text{font-size:14px}.cmp-head{grid-template-columns:1fr}.cmp3{grid-template-columns:1fr 1fr}.cmp3 .k{grid-column:1/-1;padding:16px 0 4px;border-top:1px solid var(--line)}.cmp3 .k.h{display:none}.cmp3>div:not(.k){border-top:0;padding:10px 14px}.cmp3 .us.h{border-radius:12px 12px 0 0}}
 
 /* ===== 03 scents: panels expand on hover ===== */
 .dark{background:var(--deep);color:#fff}
@@ -379,7 +384,7 @@ html.js [data-split].in .sw>i{transform:none}
     <div class="cmp3">
       <div class="k h"></div><div class="h">Reorder when it’s empty</div><div class="us h">Monthly Deodorant</div>
       <div class="k">Your stick</div>
-      <div class="v"><div class="fig f-old"><svg viewBox="0 0 320 96" role="img" aria-label="A stick runs empty, then there is a gap of several days before the new one arrives">
+      <div class="v"><span class="figcap">Reorder when it’s empty</span><div class="fig f-old"><svg viewBox="0 0 320 96" role="img" aria-label="A stick runs empty, then there is a gap of several days before the new one arrives">
         <rect x="14" y="14" width="30" height="66" rx="6" fill="#ece6dc"/><rect class="lvl" x="14" y="14" width="30" height="66" rx="6" fill="#b8b2a7"/>
         <line x1="60" y1="47" x2="306" y2="47" stroke="#d6cfc4" stroke-width="2"/>
         <rect class="gap" x="195" y="41" width="96" height="12" rx="6" fill="#d9a6a0"/>
@@ -387,7 +392,7 @@ html.js [data-split].in .sw>i{transform:none}
         <g class="oldbox"><rect x="292" y="35" width="22" height="24" rx="3" fill="#b8b2a7"/></g>
         <rect class="clock" x="60" y="40" width="2" height="14" fill="#1a1b17"/>
       </svg></div></div>
-      <div class="v us"><div class="fig f-new"><svg viewBox="0 0 320 96" role="img" aria-label="A new stick arrives before the current one runs out">
+      <div class="v us"><span class="figcap">Monthly Deodorant</span><div class="fig f-new"><svg viewBox="0 0 320 96" role="img" aria-label="A new stick arrives before the current one runs out">
         <rect x="14" y="14" width="30" height="66" rx="6" fill="#efe7f0"/><rect class="lvl" x="14" y="14" width="30" height="66" rx="6" fill="#b49bba"/>
         <line x1="60" y1="47" x2="306" y2="47" stroke="#d6cfc4" stroke-width="2"/>
         <g class="box"><rect x="160" y="35" width="22" height="24" rx="3" fill="#8e7393"/></g>
@@ -407,18 +412,18 @@ html.js [data-split].in .sw>i{transform:none}
     <h2 class="d2" data-split style="max-width:14ch">Five scents. Everyone gets&nbsp;theirs.</h2>
     <p class="lede fx" style="margin-top:20px">Scented only with essential oils, never synthetic fragrance. Every scent comes in both formulas.</p>
     <div class="panels" id="panels">
-      <button class="pn on" style="--c:#d6c6d8" data-s="lav"><span class="nm">Lavender</span><span class="nt">Soft lavender from essential oils. The scent Megan R. says “smells so good, and it worked all day long.”</span><span class="stk "><img src="img/b_lav.webp" alt="" width="400" height="900" decoding="async" ></span></button>
-      <button class="pn" style="--c:#cfdcc8" data-s="cedar"><span class="nm">Cedar + Clove</span><span class="nt">Warm, woody cedar with a little spice from clove.</span><span class="stk "><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" ></span></button>
-      <button class="pn" style="--c:#f0d9cb" data-s="cit"><span class="nm">Citrus Burst</span><span class="nt">Bright citrus. “Smells amazing and actually lasts longer than normal deodorants I’ve tried.” Jerri M.</span><span class="stk "><img src="img/r_cit.webp" alt="" width="400" height="900" decoding="async" ></span></button>
-      <button class="pn" style="--c:#f1cdd1" data-s="him"><span class="nm">Himalayan Magic</span><span class="nt">Rose, geranium and patchouli. Annie P.’s pick after Tom’s and Native.</span><span class="stk "><img src="img/r_him.webp" alt="" width="400" height="900" decoding="async" ></span></button>
-      <button class="pn" style="--c:#ebe4d8" data-s="uns"><span class="nm">Unscented</span><span class="nt">No added scent, for fragrance-sensitive skin or anyone who wears perfume.</span><span class="stk "><img src="img/r_uns.webp" alt="" width="400" height="900" decoding="async" ></span></button>
+      <button class="pn on" style="--c:#d6c6d8" data-s="lav"><span class="nm">Lavender</span><span class="nt">Soft lavender from essential oils. The scent Megan R. says “smells so good, and it worked all day long.”</span><span class="stk " ><img src="img/b_lav.webp" alt="" width="400" height="900" decoding="async" ></span></button>
+      <button class="pn" style="--c:#cfdcc8" data-s="cedar"><span class="nm">Cedar + Clove</span><span class="nt">Warm, woody cedar with a little spice from clove.</span><span class="stk " ><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" ></span></button>
+      <button class="pn" style="--c:#f0d9cb" data-s="cit"><span class="nm">Citrus Burst</span><span class="nt">Bright citrus. “Smells amazing and actually lasts longer than normal deodorants I’ve tried.” Jerri M.</span><span class="stk " ><img src="img/r_cit.webp" alt="" width="400" height="900" decoding="async" ></span></button>
+      <button class="pn" style="--c:#f1cdd1" data-s="him"><span class="nm">Himalayan Magic</span><span class="nt">Rose, geranium and patchouli. Annie P.’s pick after Tom’s and Native.</span><span class="stk " ><img src="img/r_him.webp" alt="" width="400" height="900" decoding="async" ></span></button>
+      <button class="pn" style="--c:#ebe4d8" data-s="uns"><span class="nm">Unscented</span><span class="nt">No added scent, for fragrance-sensitive skin or anyone who wears perfume.</span><span class="stk " ><img src="img/r_uns.webp" alt="" width="400" height="900" decoding="async" ></span></button>
     </div>
   </div>
 </section>
 
 <section class="sec" id="house">
   <div class="wrap house">
-    <figure class="fx"><img class="" src="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1100" srcset="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=700 700w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1100 1100w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1600 1600w" sizes="(max-width:860px) 100vw, 50vw" alt="A woman holding an open Simple Body Cedar + Clove deodorant stick and its cap" width="1200" height="1343" loading="lazy" decoding="async"></figure>
+    <figure class="fx"><img class="" src="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1100" srcset="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=700 700w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1100 1100w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1600 1600w" sizes="(max-width:860px) 100vw, 50vw" alt="A woman holding an open Simple Body Cedar + Clove deodorant stick and its cap" width="1200" height="1343" loading="lazy" decoding="async" data-px="70" data-pxs="1.16"></figure>
     <div>
       <div class="lbl"><b>04</b> / For the whole house</div>
       <blockquote class="fx"><p>“My husband and I LOVE this deodorant. It works great and the bottle lasts us quite a while. We are big fans!”</p><cite>Audrey K. · Original</cite></blockquote>
@@ -448,7 +453,7 @@ html.js [data-split].in .sw>i{transform:none}
 <section class="close">
   <div class="wrap">
     <div><h2 class="d2" data-split>One less thing to&nbsp;remember.</h2><p class="fx">Pick the scents, pick a rhythm, and the next stick is already on its way.</p><a class="btn mag fx" href="#top">Build your subscription <span class="ar" aria-hidden="true">&rarr;</span></a></div>
-    <div class="sticks fx" aria-hidden="true"><span class="stk "><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" ></span><span class="stk "><img src="img/b_lav.webp" alt="" width="400" height="900" decoding="async" ></span><span class="stk "><img src="img/r_him.webp" alt="" width="400" height="900" decoding="async" ></span></div>
+    <div class="sticks fx" aria-hidden="true"><span class="stk " data-px="40"><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" ></span><span class="stk " data-px="90"><img src="img/b_lav.webp" alt="" width="400" height="900" decoding="async" ></span><span class="stk " data-px="60"><img src="img/r_him.webp" alt="" width="400" height="900" decoding="async" ></span></div>
   </div>
 </section>
 </main>
@@ -619,10 +624,18 @@ var figIO=new IntersectionObserver(function(es){es.forEach(function(e){e.target.
 
 /* ---------- scroll-driven progress (--p from 0 to 1 as an element crosses the viewport) ---------- */
 var prog=[].slice.call(document.querySelectorAll('[data-progress]'));
+/* parallax: data-px = travel in px across one screen (negative moves against the scroll); data-pxs = extra scale so clipped photos never show an edge */
+var pxs=RM?[]:[].slice.call(document.querySelectorAll('[data-px]'));
+pxs.forEach(function(el){el.style.willChange='transform'});
 var navEl=document.querySelector('.nav'), darks=[].slice.call(document.querySelectorAll('[data-dark]'));
 var links=[].slice.call(document.querySelectorAll('.nav ul a')), uline=document.querySelector('.nav .uline');
 function onScroll(){
   var vh=innerHeight;
+  pxs.forEach(function(el){
+    var r=(el.parentElement||el).getBoundingClientRect(); if(r.bottom<-200||r.top>vh+200) return;
+    var c=(r.top+r.height/2-vh/2)/vh, amt=+el.dataset.px*(innerWidth<700?1.25:1);
+    el.style.transform='translate3d(0,'+(-c*amt).toFixed(1)+'px,0)'+(el.dataset.pxs?' scale('+el.dataset.pxs+')':'');
+  });
   prog.forEach(function(el){
     var r=el.getBoundingClientRect(), a=+(el.dataset.progress||0.85), b=+(el.dataset.progressEnd||0.35);
     var p=(vh*a-r.top)/(vh*a-vh*b+r.height*(+(el.dataset.progressH||0)));

@@ -121,7 +121,8 @@ html.js [data-split].in .sw>i{transform:none}
 .buy-img{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:flex-end;min-height:560px;padding-top:48px}
 .buy-img .stk{width:min(220px,46%);transition:opacity .35s,transform .6s var(--ease)}
 .buy-img .stk.swap{opacity:0;transform:translateY(10px) scale(.98)}
-.buy-img .halo{position:absolute;left:50%;bottom:4%;width:min(420px,86%);aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:var(--sc,#e9e4dc);transition:background .6s var(--ease);z-index:-1}
+.buy-img .halo-wrap{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.buy-img .halo{position:absolute;left:50%;bottom:4%;width:min(420px,86%);aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:var(--sc,#e9e4dc);transition:background .6s var(--ease)}
 .buy-img .tag{position:absolute;left:0;top:8px;font-family:var(--mono);font-size:13px;color:var(--g1)}
 .buy-ctl{display:grid;gap:26px}
 .grp>.gl{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--g1);margin-bottom:10px}
@@ -167,6 +168,9 @@ html.js [data-split].in .sw>i{transform:none}
   html.js .fx{opacity:1;transform:none}
   html.js [data-split] .sw>i{transform:none}
 }
+
+/* photos that drift: their frames clip, and the image starts slightly larger */
+figure:has(> img[data-px]){overflow:hidden}
 
 .d1,.d2,.d3{letter-spacing:.012em}
 .d1{font-size:clamp(50px,min(8.2vw,10.6vh),128px);line-height:.98}
@@ -293,11 +297,11 @@ html.js [data-split].in .sw>i{transform:none}
   </div>
   <div class="lineup" id="lineup" aria-label="The five scents: Lavender, Cedar + Clove, Citrus Burst, Himalayan Magic and Unscented">
     <div class="row">
-      <div class="it"><span class="stk "><img src="img/b_lav.webp" alt="" width="400" height="900" decoding="async" ></span></div>
-      <div class="it"><span class="stk "><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" ></span></div>
-      <div class="it" style="position:relative"><span class="cap">Five scents · two formulas</span><span class="stk "><img src="img/r_him.webp" alt="" width="400" height="900" decoding="async" ></span></div>
-      <div class="it"><span class="stk "><img src="img/r_cit.webp" alt="" width="400" height="900" decoding="async" ></span></div>
-      <div class="it"><span class="stk "><img src="img/r_uns.webp" alt="" width="400" height="900" decoding="async" ></span></div>
+      <div class="it"><span class="stk " ><img src="img/b_lav.webp" alt="" width="400" height="900" decoding="async" ></span></div>
+      <div class="it"><span class="stk " ><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" ></span></div>
+      <div class="it" style="position:relative"><span class="cap">Five scents · two formulas</span><span class="stk " ><img src="img/r_him.webp" alt="" width="400" height="900" decoding="async" ></span></div>
+      <div class="it"><span class="stk " ><img src="img/r_cit.webp" alt="" width="400" height="900" decoding="async" ></span></div>
+      <div class="it"><span class="stk " ><img src="img/r_uns.webp" alt="" width="400" height="900" decoding="async" ></span></div>
     </div>
   </div>
   <div class="band">
@@ -344,7 +348,7 @@ html.js [data-split].in .sw>i{transform:none}
       </div>
     </div>
     <div class="buy" id="buy" data-buy data-f="orig" data-s="cedar" data-plan="once" data-cad="60">
-<div class="buy-img"><span class="tag" aria-live="polite"></span><span class="halo"></span><span class="stk "><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" data-stickimg></span></div>
+<div class="buy-img"><span class="tag" aria-live="polite"></span><span class="halo-wrap" data-px="-70"><span class="halo"></span></span><span class="stk " ><img src="img/r_cedar.webp" alt="" width="400" height="900" decoding="async" data-stickimg></span></div>
 <div class="buy-ctl"><div class="grp"><div class="gl"><span>Formula</span></div><div class="seg">
 <button class="opt" data-f="orig" aria-pressed="false"><span class="t">Original</span><span class="s">Baking soda, organic coconut oil + tea tree · 85 reviews</span></button>
 <button class="opt" data-f="bsf" aria-pressed="false"><span class="t">Baking Soda-Free</span><span class="s">For sensitive skin: cornstarch + arrowroot · 7 reviews</span></button>
@@ -367,7 +371,7 @@ html.js [data-split].in .sw>i{transform:none}
       <div><span class="v roll" data-to="16"></span><span class="k">years of Simple Body in Colorado Springs</span></div>
     </div>
     <div class="feature">
-      <figure class="fx"><img class="" src="img/l_green.webp" alt="A woman smiling over her shoulder, holding a Simple Body Lavender deodorant stick" width="1200" height="1499" loading="lazy" decoding="async"></figure>
+      <figure class="fx"><img class="" src="img/l_green.webp" alt="A woman smiling over her shoulder, holding a Simple Body Lavender deodorant stick" width="1200" height="1499" loading="lazy" decoding="async" data-px="70" data-pxs="1.16"></figure>
       <blockquote class="fx" style="--d:1"><p>“Smells fresh without being overpowering, and lasts more than 24 hrs. I put it on in the morning, wear it all day, sleep overnight, and get up and workout the next morning without reapplying, and it STILL works.”</p><cite>Tara T. · Original</cite></blockquote>
     </div>
     <div class="quotes">
@@ -383,7 +387,7 @@ html.js [data-split].in .sw>i{transform:none}
 
 <section class="sec" id="maker">
   <div class="wrap founder">
-    <figure class="fx"><img class="" src="img/l_hands.webp" alt="A woman cradling a Simple Body deodorant stick between her hands" width="1200" height="1333" loading="lazy" decoding="async"><figcaption>Formulated + made in Colorado Springs</figcaption></figure>
+    <figure class="fx"><img class="" src="img/l_hands.webp" alt="A woman cradling a Simple Body deodorant stick between her hands" width="1200" height="1333" loading="lazy" decoding="async" data-px="70" data-pxs="1.16"><figcaption>Formulated + made in Colorado Springs</figcaption></figure>
     <div>
       <div class="lbl"><b>04</b> / From the formulator</div>
       <h2 class="d3" data-split style="max-width:18ch;margin-bottom:28px">We make two deodorants because one can’t be right for every&nbsp;underarm.</h2>
@@ -585,10 +589,18 @@ var figIO=new IntersectionObserver(function(es){es.forEach(function(e){e.target.
 
 /* ---------- scroll-driven progress (--p from 0 to 1 as an element crosses the viewport) ---------- */
 var prog=[].slice.call(document.querySelectorAll('[data-progress]'));
+/* parallax: data-px = travel in px across one screen (negative moves against the scroll); data-pxs = extra scale so clipped photos never show an edge */
+var pxs=RM?[]:[].slice.call(document.querySelectorAll('[data-px]'));
+pxs.forEach(function(el){el.style.willChange='transform'});
 var navEl=document.querySelector('.nav'), darks=[].slice.call(document.querySelectorAll('[data-dark]'));
 var links=[].slice.call(document.querySelectorAll('.nav ul a')), uline=document.querySelector('.nav .uline');
 function onScroll(){
   var vh=innerHeight;
+  pxs.forEach(function(el){
+    var r=(el.parentElement||el).getBoundingClientRect(); if(r.bottom<-200||r.top>vh+200) return;
+    var c=(r.top+r.height/2-vh/2)/vh, amt=+el.dataset.px*(innerWidth<700?1.25:1);
+    el.style.transform='translate3d(0,'+(-c*amt).toFixed(1)+'px,0)'+(el.dataset.pxs?' scale('+el.dataset.pxs+')':'');
+  });
   prog.forEach(function(el){
     var r=el.getBoundingClientRect(), a=+(el.dataset.progress||0.85), b=+(el.dataset.progressEnd||0.35);
     var p=(vh*a-r.top)/(vh*a-vh*b+r.height*(+(el.dataset.progressH||0)));
