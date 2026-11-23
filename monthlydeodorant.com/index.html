@@ -666,6 +666,14 @@ if(matchMedia('(pointer:fine)').matches&&!RM){
 }
 })();
 
+/* Daily visit counter: one cookie-free tally per page view and per click through to the store */
+(function(){
+  if(!/^https?:$/.test(location.protocol) || !/(deodorant\.com|pages\.dev)$/.test(location.hostname)) return;
+  function hit(e){ try{ var b=JSON.stringify({e:e}); if(navigator.sendBeacon) navigator.sendBeacon('/api/hit', new Blob([b],{type:'application/json'})); else fetch('/api/hit',{method:'POST',body:b,keepalive:true}); }catch(_){} }
+  hit('view');
+  document.addEventListener('click',function(ev){ var a=ev.target.closest&&ev.target.closest('a[href*="simplebodyproducts.com"]'); if(a) hit('click'); },true);
+})();
+
 (function(){
   var P=SB.P, SC=SB.SC, PLAN=SB.PLAN, money=SB.money;
   var state={cad:60, lines:[{s:'lav',f:'bsf'}]};
