@@ -171,6 +171,8 @@ html.js [data-split].in .sw>i{transform:none}
 /* photos that drift: their frames clip, and the image starts slightly larger */
 figure:has(> img[data-px]){overflow:hidden}
 
+.st5{display:inline-flex;gap:2px;color:#c69a3e;vertical-align:middle;line-height:0}.st5 svg{width:var(--ss,16px);height:var(--ss,16px);fill:currentColor}
+
 .d1,.d2,.d3{letter-spacing:.005em}
 .d1{font-size:clamp(44px,min(5.9vw,9.6vh),96px);line-height:1.02}
 .faq summary{font-size:clamp(20px,1.8vw,24px);letter-spacing:.005em}
@@ -186,7 +188,7 @@ figure:has(> img[data-px]){overflow:hidden}
 .year .yh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:22px}
 .year .yh b{font:400 26px/1.1 var(--display)}
 .year .yh span{font-family:var(--mono);font-size:13px;color:var(--g1)}
-.cal{flex:none;margin-top:auto;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;height:clamp(200px,17vw,240px)}
+.cal{flex:none;margin-top:auto;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;height:clamp(180px,15vw,220px)}
 .mo{position:relative;display:flex;flex-wrap:wrap-reverse;justify-content:center;align-content:flex-start;align-items:flex-end;gap:3px 2px;border-radius:0;background:linear-gradient(var(--line),var(--line)) 0 calc(100% - 28px)/100% 2px no-repeat;padding:10px 2px 34px}
 .mo .ml{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:13px;color:var(--g1)}
 .mo.now{background:linear-gradient(var(--lilac-d),var(--lilac-d)) 0 calc(100% - 28px)/100% 2px no-repeat}
@@ -196,7 +198,7 @@ figure:has(> img[data-px]){overflow:hidden}
 @keyframes drop{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:none}}
 .inbox{flex:1;display:flex;justify-content:center;align-items:flex-end;gap:clamp(12px,2vw,28px);padding:8px 0 26px;min-height:240px}
 .inbox figure{display:flex;flex-direction:column;align-items:center;gap:10px;animation:drop .6s var(--ease) backwards;animation-delay:calc(var(--k)*70ms)}
-.inbox .stk{width:clamp(64px,7vw,96px)}
+.inbox .stk{width:clamp(76px,8.6vw,124px)}
 .inbox figcaption{font-size:13px;color:var(--g1);text-align:center;line-height:1.35}
 .inbox figcaption b{display:block;color:var(--ink);font-size:14px}
 .year .yf{margin-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:15px;color:var(--g1)}
@@ -228,7 +230,7 @@ figure:has(> img[data-px]){overflow:hidden}
 .sum .btn{width:100%}
 .sum small{font-size:13px;color:var(--g1);line-height:1.5}
 .gl2{font-size:14px;color:var(--g1);margin-bottom:10px;display:flex;justify-content:space-between}
-@media (max-width:980px){.inbox{min-height:0}.hero-top{grid-template-columns:1fr}.builder{grid-template-columns:1fr}.year{border-right:0;border-bottom:1px solid var(--line)}.cal{grid-template-columns:repeat(6,minmax(0,1fr));height:auto}.mo{min-height:130px}}
+@media (max-width:980px){.inbox{min-height:0}.hero-top{grid-template-columns:1fr}.builder{grid-template-columns:1fr}.year{border-right:0;border-top:1px solid var(--line);order:2}.ctl{order:1}.cal{grid-template-columns:repeat(6,minmax(0,1fr));height:auto;row-gap:4px}.mo{min-height:92px}.inbox{padding-bottom:14px}.year .yh{margin-bottom:10px}}
 
 /* ===== 01 steps ===== */
 .steps{position:relative;margin-top:64px;--p:0}
@@ -271,7 +273,7 @@ figure:has(> img[data-px]){overflow:hidden}
 @keyframes oldbox{0%,94%{opacity:.25}100%{opacity:1}}
 .clock{animation:clock 5s linear infinite backwards}
 @keyframes clock{from{transform:translateX(0)}to{transform:translateX(260px)}}
-@media (max-width:860px){.cmp3 .v:has(.fig){grid-column:1/-1;padding:14px 16px 18px!important}.figcap{display:block}.fig text{font-size:14px}.cmp-head{grid-template-columns:1fr}.cmp3{grid-template-columns:1fr 1fr}.cmp3 .k{grid-column:1/-1;padding:16px 0 4px;border-top:1px solid var(--line)}.cmp3 .k.h{display:none}.cmp3>div:not(.k){border-top:0;padding:10px 14px}.cmp3 .us.h{border-radius:12px 12px 0 0}}
+@media (max-width:860px){.cmp3 .v:has(.fig){grid-column:1/-1;padding:14px 16px 18px!important}.fig text{font-size:14px}.cmp-head{grid-template-columns:1fr}.cmp3{grid-template-columns:1fr 1fr}.cmp3 .k{grid-column:1/-1;padding:16px 0 4px;border-top:1px solid var(--line)}.cmp3 .k.h{display:none}.cmp3 .h{font-size:22px;padding:14px 14px 10px}.cmp3 .k.ys{display:none}.cmp3>div:not(.k){border-top:0;padding:10px 14px}.cmp3 .us.h{border-radius:12px 12px 0 0}}
 
 /* ===== 03 scents: panels expand on hover ===== */
 .dark{background:var(--deep);color:#fff}
@@ -285,7 +287,7 @@ figure:has(> img[data-px]){overflow:hidden}
 .pn:not(.on) .nm{writing-mode:vertical-rl;right:auto;left:50%;transform:translateX(-50%);top:22px}
 .pn .nt{position:absolute;left:20px;top:58px;right:20px;font-size:15px;color:rgba(0,0,0,.66);opacity:0;transition:opacity .4s}
 .pn.on .nt{opacity:1;transition-delay:.2s}
-@media (max-width:860px){.pn:not(.on) .nm{writing-mode:horizontal-tb;left:20px;transform:none}.panels{flex-direction:column;height:auto}.pn{flex:none;height:96px}.pn.on{flex:none;height:300px}.pn .stk{width:64px;left:auto;right:18px;transform:none;bottom:-40%}.pn.on .stk{width:120px;transform:none;bottom:-4%}}
+@media (max-width:860px){.pn:not(.on) .nm{writing-mode:horizontal-tb;left:20px;transform:none}.panels{flex-direction:column;height:auto}.pn{flex:none;height:96px}.pn.on{flex:none;height:300px}.pn .stk{width:64px;left:auto;right:18px;transform:none;bottom:-40%}.pn.on .stk{width:104px;transform:none;bottom:-6%}.pn.on .nt{right:132px}.pn.on{height:280px}}
 
 /* ===== 04 household ===== */
 .house{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
@@ -311,7 +313,7 @@ figure:has(> img[data-px]){overflow:hidden}
 .close .sticks{display:flex;gap:10px;justify-content:center;align-items:flex-end}
 .close .sticks .stk{width:clamp(56px,7vw,96px)}
 .close .sticks .stk:nth-child(2){width:clamp(66px,8.4vw,116px)}
-@media (max-width:860px){.close .wrap{grid-template-columns:1fr}}
+@media (max-width:860px){.close .wrap{grid-template-columns:1fr;gap:88px}.close .sticks{padding-top:10px}}
 </style>
 </head>
 <body>
@@ -327,7 +329,7 @@ figure:has(> img[data-px]){overflow:hidden}
   <div class="wrap">
     <div class="hero-top">
       <h1 class="d1" data-split>Deodorant that shows up <em>before you run&nbsp;out.</em></h1>
-      <div class="fx" style="--d:3"><p class="lede">Natural, aluminum-free deodorant on your schedule: every 30, 60 or 90 days, at $14.40 a stick. Mix scents for everyone in the house.</p><div class="proof"><b>5.0</b><span>from 92 reviews<br>Made in Colorado Springs</span></div></div>
+      <div class="fx" style="--d:3"><p class="lede">Natural, aluminum-free deodorant on your schedule: every 30, 60 or 90 days, at $14.40 a stick. Mix scents for everyone in the house.</p><div class="proof"><b>5.0</b><span><span class="st5" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg></span> from 92 reviews<br>Made in Colorado Springs</span></div></div>
     </div>
 
     <div class="builder fx" style="--d:2" id="builder">
@@ -383,7 +385,7 @@ figure:has(> img[data-px]){overflow:hidden}
     </div>
     <div class="cmp3">
       <div class="k h"></div><div class="h">Reorder when it’s empty</div><div class="us h">Monthly Deodorant</div>
-      <div class="k">Your stick</div>
+      <div class="k ys">Your stick</div>
       <div class="v"><span class="figcap">Reorder when it’s empty</span><div class="fig f-old"><svg viewBox="0 0 320 96" role="img" aria-label="A stick runs empty, then there is a gap of several days before the new one arrives">
         <rect x="14" y="14" width="30" height="66" rx="6" fill="#ece6dc"/><rect class="lvl" x="14" y="14" width="30" height="66" rx="6" fill="#b8b2a7"/>
         <line x1="60" y1="47" x2="306" y2="47" stroke="#d6cfc4" stroke-width="2"/>
@@ -426,7 +428,7 @@ figure:has(> img[data-px]){overflow:hidden}
     <figure class="fx"><img class="" src="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1100" srcset="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=700 700w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1100 1100w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/IMG_4359.webp?v=1792094486&width=1600 1600w" sizes="(max-width:860px) 100vw, 50vw" alt="A woman holding an open Simple Body Cedar + Clove deodorant stick and its cap" width="1200" height="1343" loading="lazy" decoding="async" data-px="70" data-pxs="1.16"></figure>
     <div>
       <div class="lbl"><b>04</b> / For the whole house</div>
-      <blockquote class="fx"><p>“My husband and I LOVE this deodorant. It works great and the bottle lasts us quite a while. We are big fans!”</p><cite>Audrey K. · Original</cite></blockquote>
+      <blockquote class="fx"><span class="st5" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg></span><p style="margin-top:14px">“My husband and I LOVE this deodorant. It works great and the bottle lasts us quite a while. We are big fans!”</p><cite>Audrey K. · Original</cite></blockquote>
       <div class="nums fx">
         <div><span class="v">$14.40</span><span class="k">per stick, every delivery</span></div>
         <div><span class="v">3 oz</span><span class="k">in every stick</span></div>

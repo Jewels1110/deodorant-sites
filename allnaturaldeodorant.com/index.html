@@ -172,6 +172,8 @@ html.js [data-split].in .sw>i{transform:none}
 /* photos that drift: their frames clip, and the image starts slightly larger */
 figure:has(> img[data-px]){overflow:hidden}
 
+.st5{display:inline-flex;gap:2px;color:#c69a3e;vertical-align:middle;line-height:0}.st5 svg{width:var(--ss,16px);height:var(--ss,16px);fill:currentColor}
+
 .d1,.d2,.d3{letter-spacing:.005em}
 .d1{font-size:clamp(44px,min(6.2vw,9.6vh),100px);line-height:1.02}
 .d2{font-size:clamp(38px,5.2vw,76px);line-height:1.02}
@@ -278,8 +280,17 @@ figure:has(> img[data-px]){overflow:hidden}
 @media (max-width:860px){.tl .track{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}.tl .track i{transform-origin:top;transform:scaleY(var(--p))}.tl ol{grid-template-columns:1fr;gap:36px}.tl li{padding:0 0 0 44px}.warn{grid-template-columns:1fr}}
 
 /* ===== 05 aluminum ===== */
-.al{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:start;border-top:1px solid var(--line);padding-top:clamp(48px,6vw,80px)}
+.al{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center;border-top:1px solid var(--line);padding-top:clamp(48px,6vw,80px)}
 .al .body{font-size:18px}
+.al .body p+p{margin-top:14px}
+.zero{background:var(--white);border-radius:18px;box-shadow:0 0 0 1px var(--line),0 40px 80px -60px rgba(40,30,20,.4);padding:clamp(24px,3vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:center}
+.zero .z{font:500 clamp(120px,13vw,190px)/.8 var(--display);letter-spacing:-.03em;color:var(--ink)}
+.zero .zc{font:500 clamp(22px,2vw,28px)/1.15 var(--display);max-width:13ch}
+.zero ul{grid-column:1/-1;margin-top:22px;border-top:1px solid var(--line)}
+.zero li{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+.zero li span{font-family:var(--mono);font-size:13px;color:var(--g1);display:flex;gap:8px;align-items:center}
+.zero li span:before{content:"";width:16px;height:16px;border-radius:50%;background:#757d5f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.zero .note{grid-column:1/-1;margin-top:16px;font-size:15px;color:var(--g1)}
 @media (max-width:860px){.al{grid-template-columns:1fr}}
 
 /* ===== 06 sensitive voices ===== */
@@ -387,9 +398,9 @@ figure:has(> img[data-px]){overflow:hidden}
         <div class="fig ap"><svg viewBox="0 0 320 150" role="img" aria-label="Sweat droplets rising in a duct and stopping under an aluminum plug">
           <path d="M0 62 C60 58 110 66 140 62 L180 62 C210 66 260 58 320 62 L320 150 L0 150Z" fill="#efe3d6"/>
           <path d="M146 62 L146 132 Q146 142 160 142 Q174 142 174 132 L174 62" fill="#e6d4c3" stroke="#d9c4b0"/>
-          <rect x="140" y="50" width="40" height="16" rx="4" fill="#a7a59d"/>
-          <text x="186" y="45" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6b6a63">aluminum plug</text>
-          <g><circle class="drop" cx="160" cy="128" r="6" fill="#9fb6c4"/><circle class="drop" cx="160" cy="128" r="5" fill="#9fb6c4"/><circle class="drop" cx="160" cy="128" r="4.5" fill="#9fb6c4"/></g>
+          <rect x="136" y="48" width="48" height="20" rx="5" fill="#5f5b54"/>
+          <text x="190" y="44" font-family="IBM Plex Mono,monospace" font-size="13" font-weight="600" fill="#3f3c37">aluminum plug</text>
+          <g><circle class="drop" cx="160" cy="128" r="6" fill="#5f93b3"/><circle class="drop" cx="160" cy="128" r="5" fill="#5f93b3"/><circle class="drop" cx="160" cy="128" r="4.5" fill="#5f93b3"/></g>
         </svg></div>
         <p>Aluminum compounds physically plug the sweat duct. When you stop using it, those ducts take time to clear. That’s the transition period.</p>
       </div>
@@ -398,9 +409,9 @@ figure:has(> img[data-px]){overflow:hidden}
         <div class="fig dd"><svg viewBox="0 0 320 150" role="img" aria-label="Sweat droplets leave the duct freely while odor is neutralized at the skin">
           <path d="M0 62 C60 58 110 66 140 62 L180 62 C210 66 260 58 320 62 L320 150 L0 150Z" fill="#efe3d6"/>
           <path d="M146 62 L146 132 Q146 142 160 142 Q174 142 174 132 L174 62" fill="#e6d4c3" stroke="#d9c4b0"/>
-          <rect x="40" y="56" width="102" height="7" rx="3.5" fill="#a9b190" opacity=".85"/><rect x="178" y="56" width="102" height="7" rx="3.5" fill="#a9b190" opacity=".85"/>
-          <text x="40" y="45" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4e5640">deodorant layer</text>
-          <g><circle class="drop" cx="160" cy="128" r="6" fill="#9fb6c4"/><circle class="drop" cx="160" cy="128" r="5" fill="#9fb6c4"/><circle class="drop" cx="160" cy="128" r="4.5" fill="#9fb6c4"/></g>
+          <rect x="30" y="54" width="112" height="10" rx="5" fill="#6f7a52"/><rect x="178" y="54" width="112" height="10" rx="5" fill="#6f7a52"/>
+          <text x="30" y="44" font-family="IBM Plex Mono,monospace" font-size="13" font-weight="600" fill="#3f4630">deodorant layer</text>
+          <g><circle class="drop" cx="160" cy="128" r="6" fill="#5f93b3"/><circle class="drop" cx="160" cy="128" r="5" fill="#5f93b3"/><circle class="drop" cx="160" cy="128" r="4.5" fill="#5f93b3"/></g>
           <g fill="none" stroke="#b99a7a" stroke-width="2" stroke-linecap="round"><path class="whiff" d="M196 44 q6 -8 0 -16 q-6 -8 0 -16"/><path class="whiff" d="M214 46 q6 -8 0 -16 q-6 -8 0 -16"/></g>
           <g class="zap" style="transform-origin:206px 30px"><circle cx="206" cy="30" r="16" fill="none" stroke="#757d5f" stroke-width="2"/><path d="M198 30 l6 6 l10 -12" fill="none" stroke="#757d5f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
         </svg></div>
@@ -430,10 +441,15 @@ figure:has(> img[data-px]){overflow:hidden}
       <a class="btn" href="#shop" data-pick="bsf">See Baking Soda-Free</a>
     </div>
     <div class="al" style="margin-top:clamp(80px,9vw,128px)">
-      <div><div class="lbl"><b>05</b> / Aluminum, plainly</div><h2 class="d3" data-split style="max-width:14ch">Why people choose to skip&nbsp;it.</h2></div>
-      <div class="body fx">
+      <div><div class="lbl"><b>05</b> / Aluminum, plainly</div><h2 class="d2" data-split style="max-width:12ch">Why people choose to skip&nbsp;it.</h2>
+      <div class="body fx" style="margin-top:28px">
         <p>No definitive scientific consensus links aluminum in deodorant to serious health conditions, and we won’t pretend otherwise.</p>
         <p>Plenty of people still prefer to keep their exposure low as a precaution, since deodorant goes on every day over thin, absorbent underarm skin. If that’s you, the goal is simple: odor control from ingredients you can recognize, with nothing plugging your pores.</p>
+      </div></div>
+      <div class="zero fx" style="--d:1">
+        <span class="z">0</span><span class="zc">aluminum compounds in either formula</span>
+        <ul><li>Original<span>Aluminum-free</span></li><li>Baking Soda-Free<span>Aluminum-free</span></li></ul>
+        <p class="note">Odor control comes from baking soda (or arrowroot), organic coconut oil and tea tree oil.</p>
       </div>
     </div>
   </div>
@@ -445,11 +461,11 @@ figure:has(> img[data-px]){overflow:hidden}
     <div class="voices">
       <figure class="ph fx"><img class="" src="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=1100" srcset="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=700 700w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=1100 1100w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=1600 1600w" sizes="(max-width:860px) 100vw, 50vw" alt="A Simple Body Baking Soda-Free deodorant in Himalayan Magic on a wooden block with dried rose petals" width="1845" height="2048" loading="lazy" decoding="async" data-px="70" data-pxs="1.16"></figure>
       <div>
-        <blockquote class="big fx"><p>“I told Jewel my issues with other deodorants. I was breaking out with rashes under my arms… The baking soda free deodorant is exactly what I needed.”</p><cite>Valerie S. · Baking Soda-Free · using it for several years</cite></blockquote>
+        <blockquote class="big fx"><span class="st5" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg></span><p style="margin-top:14px">“I told Jewel my issues with other deodorants. I was breaking out with rashes under my arms… The baking soda free deodorant is exactly what I needed.”</p><cite>Valerie S. · Baking Soda-Free · using it for several years</cite></blockquote>
       </div>
     </div>
     <div class="vsmall">
-      <figure class="fx"><blockquote>“If you get rashes on your underarms from your current deodorant, you need to try this baking soda free deodorant.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Valeria S.</figcaption></figure>
+      <figure class="fx"><blockquote>“Smells amazing and actually lasts longer than normal deodorants I’ve tried.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Jerri M. · Citrus Burst</figcaption></figure>
       <figure class="fx" style="--d:1"><blockquote>“The deodorant smells so good, and it worked all day long! … I never had any sweating, stickiness or bad odor.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Megan R. · Lavender</figcaption></figure>
       <figure class="fx" style="--d:2"><blockquote>“Love this deodorant. Glides on smooth and offers good protection.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Janyce C. · Lavender</figcaption></figure>
     </div>
