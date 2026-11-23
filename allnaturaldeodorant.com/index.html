@@ -293,9 +293,33 @@ figure:has(> img[data-px]){overflow:hidden}
 .zero .note{grid-column:1/-1;margin-top:16px;font-size:15px;color:var(--g1)}
 @media (max-width:860px){.al{grid-template-columns:1fr}}
 
+/* Yuka score */
+.yuka{display:flex;gap:12px;align-items:center;margin-top:24px;font-size:14px;color:var(--g1);line-height:1.35}
+.yuka i{flex:none;width:14px;height:14px;border-radius:50%;background:#4a9a5b;box-shadow:0 0 0 4px rgba(74,154,91,.16)}
+.yuka b{display:block;color:var(--ink);font-size:16px}
+.zero .yk{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin-top:16px;font-size:15px;color:var(--ink)}
+.zero .yk i{width:12px;height:12px;border-radius:50%;background:#4a9a5b}
+
 /* ===== 06 sensitive voices ===== */
 .voices{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
 .voices figure.ph{border-radius:16px;overflow:hidden;aspect-ratio:1/1.05}
+.voices{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.vid{position:relative;justify-self:center;width:min(100%,400px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#11130f;box-shadow:0 0 0 8px rgba(255,255,255,.06),0 50px 90px -50px rgba(0,0,0,.7)}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid .vbar{position:absolute;left:0;right:0;bottom:0;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.6));display:flex;justify-content:space-between;align-items:flex-end;gap:12px;color:#fff;pointer-events:none}
+.vid .who{font:400 13px/1.45 var(--mono)}
+.vid .who b{display:block;font:400 22px/1.1 var(--display);font-family:var(--display)}
+.vid .snd{pointer-events:auto;min-height:44px;padding:0 16px;border-radius:10px;background:#fff;color:var(--ink);font-weight:600;font-size:15px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.vid .snd svg{width:18px;height:18px}
+.vid .bigplay{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 20px 40px -14px rgba(0,0,0,.5)}
+.vid .bigplay svg{width:30px;height:30px;margin-left:5px;fill:var(--ink)}
+.vid .bigplay[hidden],.vid .snd[hidden]{display:none}
+.vid .cc{position:absolute;left:14px;right:14px;bottom:96px;text-align:center;pointer-events:none}
+.vid .cc span{display:inline;background:rgba(17,19,15,.78);color:#fff;font:600 17px/1.5 var(--body);padding:3px 8px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.vid .cc:empty{display:none}
+.vid .prog{position:absolute;left:0;right:0;top:0;height:3px;background:rgba(255,255,255,.2)}
+.vid .prog i{display:block;height:100%;width:0;background:#fff}
+@media (max-width:860px){.vid{width:min(100%,320px)}.vid .vbar{padding:40px 14px 14px}.vid .who b{font-size:20px}.vid .snd{min-height:40px;padding:0 12px;font-size:14px}}
 .voices figure.ph img{width:100%;height:100%;object-fit:cover}
 .voices blockquote.big p{font:400 clamp(26px,2.7vw,38px)/1.15 var(--display);letter-spacing:-.015em;text-wrap:balance}
 .voices cite{display:block;margin-top:18px;font:400 13px/1.5 var(--mono);font-style:normal;color:rgba(255,255,255,.66)}
@@ -333,6 +357,7 @@ figure:has(> img[data-px]){overflow:hidden}
       <div>
         <p class="lede fx" style="--d:3">Before you switch, you should know exactly what you’re putting on thin, absorbent underarm skin. Here is every ingredient in Simple Body deodorant, and what each one does.</p>
         <div class="ctas fx" style="--d:4"><a class="btn mag" href="#label">Read the label <span class="ar" aria-hidden="true">&darr;</span></a><a class="btn ghost" href="#shop">Shop · $16</a></div>
+        <p class="yuka fx" style="--d:5"><i aria-hidden="true"></i><span><b>100/100 on Yuka</b>Rated “Excellent”, Original and Baking Soda-Free (Lavender)</span></p>
       </div>
     </div>
     <div class="labelwrap fx" style="--d:2">
@@ -449,6 +474,7 @@ figure:has(> img[data-px]){overflow:hidden}
       <div class="zero fx" style="--d:1">
         <span class="z">0</span><span class="zc">aluminum compounds in either formula</span>
         <ul><li>Original<span>Aluminum-free</span></li><li>Baking Soda-Free<span>Aluminum-free</span></li></ul>
+        <p class="yk"><i aria-hidden="true"></i>Both formulas score 100/100 on Yuka</p>
         <p class="note">Odor control comes from baking soda (or arrowroot), organic coconut oil and tea tree oil.</p>
       </div>
     </div>
@@ -459,13 +485,19 @@ figure:has(> img[data-px]){overflow:hidden}
   <div class="wrap">
     <div class="lbl"><b>06</b> / Sensitive skin</div>
     <div class="voices">
-      <figure class="ph fx"><img class="" src="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=1100" srcset="https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=700 700w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=1100 1100w, https://cdn.shopify.com/s/files/1/0733/3773/3364/files/baking-soda-free-natural-deodorant-for-sensitive-skindeodorantlavender-7666126.webp?v=1778602101&width=1600 1600w" sizes="(max-width:860px) 100vw, 50vw" alt="A Simple Body Baking Soda-Free deodorant in Himalayan Magic on a wooden block with dried rose petals" width="1845" height="2048" loading="lazy" decoding="async" data-px="70" data-pxs="1.16"></figure>
+      <figure class="vid fx" id="emily">
+        <video src="img/emily.mp4" poster="img/emily.webp" playsinline muted loop preload="metadata" aria-label="Emily on why Simple Body Baking Soda-Free is the only deodorant she uses"></video>
+        <span class="prog" aria-hidden="true"><i></i></span>
+        <p class="cc" aria-hidden="true"></p>
+        <button class="bigplay" aria-label="Play Emily's video with sound"><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></button>
+        <figcaption class="vbar"><span class="who"><b>Emily</b>Baking Soda-Free</span><button class="snd" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg><span>Play with sound</span></button></figcaption>
+      </figure>
       <div>
-        <blockquote class="big fx"><span class="st5" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg></span><p style="margin-top:14px">“I told Jewel my issues with other deodorants. I was breaking out with rashes under my arms… The baking soda free deodorant is exactly what I needed.”</p><cite>Valerie S. · Baking Soda-Free · using it for several years</cite></blockquote>
+        <blockquote class="big fx"><span class="st5" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8l-5.4 3 1.2-5.9L1.4 7.8l6-.7z"/></svg></span><p style="margin-top:14px">“The Simple Body Baking Soda-Free Deodorant is the only one I will use. There’s no artificial, weird fragrances. There’s no aluminum.”</p><cite>Emily · Baking Soda-Free · still using it today</cite></blockquote>
       </div>
     </div>
     <div class="vsmall">
-      <figure class="fx"><blockquote>“Smells amazing and actually lasts longer than normal deodorants I’ve tried.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Jerri M. · Citrus Burst</figcaption></figure>
+      <figure class="fx"><blockquote>“I was breaking out with rashes under my arms… The baking soda free deodorant is exactly what I needed.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Valerie S. · Baking Soda-Free</figcaption></figure>
       <figure class="fx" style="--d:1"><blockquote>“The deodorant smells so good, and it worked all day long! … I never had any sweating, stickiness or bad odor.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Megan R. · Lavender</figcaption></figure>
       <figure class="fx" style="--d:2"><blockquote>“Love this deodorant. Glides on smooth and offers good protection.”</blockquote><figcaption class="mono" style="color:rgba(255,255,255,.6);margin-top:14px">Janyce C. · Lavender</figcaption></figure>
     </div>
@@ -755,6 +787,27 @@ if(matchMedia('(pointer:fine)').matches&&!RM){
   /* links that pick a formula in the shop */
   var buy=document.getElementById('buy');
   [].forEach.call(document.querySelectorAll('[data-pick]'),function(a){a.addEventListener('click',function(){buy._set({f:a.dataset.pick})})});
+})();
+
+(function(){ // Emily's video: silent loop while on screen, tap for sound
+  var f=document.getElementById('emily'); if(!f) return;
+  var v=f.querySelector('video'), big=f.querySelector('.bigplay'), snd=f.querySelector('.snd'), bar=f.querySelector('.prog i'), lab=snd.querySelector('span');
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches, user=false, held=false;
+  function sync(){ big.hidden=!v.paused; snd.hidden=v.paused; lab.textContent=v.muted?'Play with sound':'Mute'; }
+  function withSound(){ user=true; held=false; v.loop=false; v.muted=false; v.currentTime=0; v.play().catch(function(){}); sync(); }
+  big.addEventListener('click',withSound);
+  snd.addEventListener('click',function(){ if(!user) withSound(); else { v.muted=!v.muted; sync(); } });
+  v.addEventListener('click',function(){ if(v.paused) withSound(); else if(user){ held=true; v.pause(); } });
+  ['play','pause','volumechange'].forEach(function(e){v.addEventListener(e,sync)});
+  v.addEventListener('ended',function(){ user=false; v.muted=true; v.loop=true; v.currentTime=0; sync(); });
+  var CUES=[[1.0, 2.3, "Hey, my name is Emily."], [2.4, 4.3, "The Simple Body Baking Soda-Free Deodorant"], [4.3, 6.0, "is the only one I will use."], [6.0, 6.5, "I love it."], [6.5, 8.7, "There’s no artificial, weird fragrances."], [8.8, 10.4, "There’s no aluminum."], [10.6, 11.6, "I used this before,"], [11.7, 13.0, "and I used it through cancer treatment"], [13.0, 14.6, "because they recommend not using aluminum,"], [14.6, 15.4, "and it worked wonderfully."], [15.4, 16.3, "I still use it today."], [16.3, 17.8, "I just wanted to throw that out there."]], cc=f.querySelector('.cc'), last=null;
+  v.addEventListener('timeupdate',function(){ var t=v.currentTime; bar.style.width=(t/(v.duration||20)*100)+'%'; var c=null; CUES.forEach(function(q){if(t>=q[0]&&t<q[1])c=q[2]}); if(c!==last){last=c; cc.innerHTML=c?'<span>'+c+'</span>':'';} });
+  if(!rm && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ if(!held) v.play().catch(function(){}); } else v.pause();
+    })},{threshold:.35}).observe(f);
+  }
+  sync();
 })();
 </script>
 </body>
